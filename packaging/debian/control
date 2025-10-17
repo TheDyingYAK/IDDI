@@ -1,0 +1,8 @@
+Package: pe-monitor
+Version: 1.0.0
+Architecture: amd64
+Maintainer: Your Name <email@example.com>
+Description: PE File Monitor for Linux
+ Monitors filesystem for PE executable creation and logs MD5 hashes.
+ .
+ Features recursive monitoring of /home and /root directories.

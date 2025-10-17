@@ -15,10 +15,22 @@ sudo apt install libssl-dev
 
 ```
 
-### Installing
+### Installing/Compiling
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+```bash
+// compile and move system components
+gcc pe_monitor.c -o pe_monitor -lssl -lcrypto
+sudo mv pe_monitor /usr/local/bin/
+
+// start the pe monitoring service
+sudo systemctl daemon-reload
+sudo systemctl enable pe-monitor.service
+sudo systemctl start pe-monitor.service
+
+// check the status with systemctl 
+sudo systemctl status pe-monitor.service
+```
+
 
 ### Executing program
 
@@ -82,6 +94,13 @@ ex. [@DomPizzie](https://twitter.com/dompizzie)
     * See [commit change]() or See [release history]()
 * 0.1
     * Initial Release
+
+## Notes
+- This monitors for creations only. If you need modifications or other events, adjust the IN_CREATE mask.
+- inotify has limits on the number of watches (check /proc/sys/fs/inotify/max_user_watches and increase if needed with sysctl).
+- The program runs indefinitely as a daemon via systemd.
+- Error handling is basic; it skips inaccessible directories (e.g., permission denied).
+- For testing, create a .exe file in /home and check the log.
 
 ## License
 

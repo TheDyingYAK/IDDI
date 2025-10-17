@@ -1,0 +1,15 @@
+[Unit]
+Description=PE File Monitor Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/pe_monitor
+Restart=always
+User=root
+Group=root
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=pe_monitor
+
+[Install]
+WantedBy=multi-user.target
