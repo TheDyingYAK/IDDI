@@ -7,6 +7,13 @@ An in-depth paragraph about your project and overview of use.
 
 ## Getting Started
 
+## Freatures
+- Recursive monitoring of /home and /root
+- PE file detection (MZ header)
+- MD5 hashing
+- Systemd service integration
+- Log rotation support
+
 ### Dependencies
 
 ```bash
@@ -102,15 +109,53 @@ ex. [@DomPizzie](https://twitter.com/dompizzie)
 - Error handling is basic; it skips inaccessible directories (e.g., permission denied).
 - For testing, create a .exe file in /home and check the log.
 
+## Build and Distribution
+For Development:
+```bash
+bashchmod +x scripts/build.sh scripts/install.sh
+./scripts/build.sh  # Compiles pe_monitor
+sudo ./scripts/install.sh  # Full installation
+```
+For Distribution:
+```bash
+Debian Package:
+bash# From project root
+dpkg-buildpackage -us -uc
+sudo dpkg -i ../pe-monitor_1.0.0_amd64.deb
+```
+Binary Distribution:
+Create a tarball:
+```bash
+bashtar -czf pe-monitor-1.0.0.tar.gz --exclude="*.git*" .
+```
+
+Version Control Structure:
+text.git/
+├── hooks/
+│   └── pre-commit          # Linting and testing hook
+├── ignore
+└── modules/
+Installation Workflow:
+
+- User downloads pe-monitor-1.0.0.tar.gz
+- Extracts and runs sudo ./scripts/install.sh
+- Service starts automatically
+- Logs appear in /var/log/pe_monitor.log
+
+This structure makes the project:
+
+Professional: Clear separation of concerns
+Maintainable: Easy to find and modify components
+Distributable: Supports packaging systems
+Testable: Includes testing framework
+Documented: Comprehensive docs and man pages
+User-friendly: Simple installation process
+
+The modular design also allows easy extension (adding config files, different hash algorithms, more event types, etc.).
+
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the [The Unlicense] License - see the LICENSE.md file for details
 
 ## Acknowledgments
-
 Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
