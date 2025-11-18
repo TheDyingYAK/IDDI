@@ -1,4 +1,4 @@
-# IDDI (I Did'nt Do It)
+# IDDI (I Didn't Do It)
 This is my repo to automatically hash any PE file that is Created in /root || /home on a linux system
 
 ## Description
