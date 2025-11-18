@@ -1,9 +1,10 @@
-# IDDI
-this is my repo to automatically hash any PE file that is Created in /root || /home on a linux sustem
+# IDDI (I Did'nt Do It)
+This is my repo to automatically hash any PE file that is Created in /root || /home on a linux system
 
 ## Description
-
-An in-depth paragraph about your project and overview of use.
+This is my repo to automatically hash any PE file that is created in /root || /home on a linux system. 
+The intent is to be able to deconflict any portable executable that may be tracked/discoverd by defenders for the
+purposes of red teaming. - This is a red team tool and is intended to be used by red teams. 
 
 ## Getting Started
 
@@ -91,8 +92,8 @@ pe-monitor/
 
 Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+TheDyingYAK  
+[@TheDyingYAK](https://github.com/TheDyingYAK)
 
 ## Version History
 
@@ -142,20 +143,12 @@ Installation Workflow:
 - Service starts automatically
 - Logs appear in /var/log/pe_monitor.log
 
-This structure makes the project:
-
-Professional: Clear separation of concerns
-Maintainable: Easy to find and modify components
-Distributable: Supports packaging systems
-Testable: Includes testing framework
-Documented: Comprehensive docs and man pages
-User-friendly: Simple installation process
-
-The modular design also allows easy extension (adding config files, different hash algorithms, more event types, etc.).
-
 ## License
 
 This project is licensed under the [The Unlicense] License - see the LICENSE.md file for details
+
+## Future planned changes
+- [] Submit hashes to an AWS RDS
 
 ## Acknowledgments
 Inspiration, code snippets, etc.
